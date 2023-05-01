@@ -1,5 +1,6 @@
 import React from 'react';      
 import { useState } from 'react';
+import Footer from './Footer.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Signup() {
@@ -46,8 +47,10 @@ export default function Signup() {
         <button type="submit" className="btn btn-primary">Sign Up</button>
       </form>
     </div>
+      
   )
-}
+      <Footer />
        </>
+    
   )
 }
