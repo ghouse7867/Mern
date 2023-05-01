@@ -1,4 +1,4 @@
-import './App.css'
+// import './App.css'
 // import '../Server/Apps.cjs'
 
 
@@ -9,7 +9,7 @@ export default function App() {
     //   {/* <Apps /> */}
     // </main>
     <div> 
-      <h1>Hellow World</h1>
+      <h1 className="text-danger">Hello World</h1>
     </div>
   )
 }
