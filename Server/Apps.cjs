@@ -1,13 +1,23 @@
 const dotenv = require('dotenv');
-
 const express = require('express');
+const cookieParser = require('cookie-parser');
+const authrouter = require('./router/auth.cjs');
 const app = express();
-require('./db/conn.cjs')
+app.use(cookieParser());
+require('./db/conn.cjs');
 
+app.use(express.json());
+
+app.use(authrouter)
+                
+// const User = require('./model/userSchema.cjs')
+
+//======================================
 middleware = (req, res, next) => {
    console.log('middleware');
   next();
 }
+//========================================
 
 app.get('/', (req, res)=>{
   res.send('Hello World from Replit');
@@ -16,6 +26,7 @@ app.get('/aboutme', middleware, (req, res)=>{
   res.send('Hello World from AboutMe');
 });
 
+//=========================================
 app.listen(3000, ()=> {
   console.log(`running on 3000`)
 })
