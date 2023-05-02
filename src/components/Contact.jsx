@@ -1,25 +1,26 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { BsPersonFill, BsEnvelopeFill, BsPhoneFill, BsBuilding, BsLockFill } from 'react-icons/bs';
 
 export default function Contact() {
   return (
     <>
-   <div className="d-flex justify-content-center">
+   <div className="d-flex justify-content-center flex-wrap">
   <div className="card m-5 shadow " style={{width: "18rem"}}>
   <div className="card-body">
-    <h5 className="card-title">Mobile</h5>
+    <h5 className="card-title"><BsPhoneFill /> Mobile</h5>
     <p className="card-text">987654321</p>
   </div>
 </div>
        <div className="card m-5  shadow " style={{width: "18rem"}}>
   <div className="card-body">
-    <h5 className="card-title">Email</h5>
+    <h5 className="card-title"><BsEnvelopeFill /> Email</h5>
     <p className="card-text">moid.ghouse@gmail.com</p>
   </div>
 </div>
    <div className="card m-5 shadow " style={{width: "18rem"}}>
   <div className="card-body">
-    <h5 className="card-title">Address</h5>
+    <h5 className="card-title"><BsBuilding /> Address</h5>
     <p className="card-text">India</p>
   </div>
 </div>
@@ -32,7 +33,7 @@ export default function Contact() {
           <form>
             <div className="mb-3">
               <label htmlFor="name" className="form-label">Name</label>
-              <input type="text" className="form-control" id="name" name="name" required />
+              <input type="text" className="form-control" id="name" name="name"  required />
             </div>
             <div className="mb-3">
               <label htmlFor="email" className="form-label">Email address</label>
