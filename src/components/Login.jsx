@@ -1,5 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import login from './Login.jsx'
 
 export default function Login() {
   return (
@@ -16,7 +17,7 @@ export default function Login() {
   </div>
   <div className="mb-3 form-check">
     <input type="checkbox" className="form-check-input" id="exampleCheck1" ></input>
-    <label className="form-check-label" for="exampleCheck1">Check me out</label>
+    <label className="form-check-label" for="exampleCheck1">Remember Me</label>
   </div>
   <button type="submit" className="btn btn-primary">Submit</button>
 </form>

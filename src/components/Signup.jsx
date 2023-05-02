@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BsPersonFill, BsEnvelopeFill, BsPhoneFill, BsBuilding, BsLockFill } from 'react-icons/bs';
+import {NavLink} from 'react-router-dom';
 
 export default function Signup() {
   const [name, setName] = useState("");
@@ -44,8 +45,10 @@ export default function Signup() {
             <span className="input-group-text"><BsLockFill /></span>
             <input type="password" className="form-control" id="cpassword" value={cpassword} onChange={(e) => setCpassword(e.target.value)} required placeholder="Confirm Password" />
           </div>
-          <button type="submit" className="btn btn-primary">Sign Up</button>
+          <button type="submit" className="btn btn-primary pb-2">Sign Up</button>
+          <NavLink to="/login" className="mx-4 fw-bold text-decoration-none">Iam Already Registered</NavLink>
         </form>
+        
       </div>
     </>
   )
