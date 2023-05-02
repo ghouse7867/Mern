@@ -7,7 +7,7 @@ export default function Navbar() {
     <>
      <nav className="navbar navbar-expand-lg bg-body-tertiary bg-primary-subtle">
   <div className="container-fluid">
-    <a className="navbar-brand" href="/"><span><img src="https://raw.githubusercontent.com/shahzaibkhalid/mern-app-generator/master/static/logo.png" style={{width:"6%", height:"2%"}}></img></span></a>
+    <img src="https://raw.githubusercontent.com/shahzaibkhalid/mern-app-generator/master/static/logo.png" style={{width:"4%", height:"2%"}}></img>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
@@ -17,7 +17,7 @@ export default function Navbar() {
           <NavLink className="nav-link active mx-2" aria-current="page" to="/">Home</NavLink>
      </li>
         <li className="nav-item">
-          <NavLink className="nav-link active mx-4" aria-current="page" to="/about">AboutMe</NavLink>
+          <NavLink className="nav-link active mx-2" aria-current="page" to="/about">AboutMe</NavLink>
      </li>
         <li className="nav-item">
           <NavLink className="nav-link active mx-2" aria-current="page" to="/Contact">Contact</NavLink>
