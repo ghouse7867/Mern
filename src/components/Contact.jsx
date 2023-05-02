@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BsPersonFill, BsEnvelopeFill, BsPhoneFill, BsBuilding, BsLockFill } from 'react-icons/bs';
+import { BsPhoneFill, BsBuilding, BsEnvelopeFill } from 'react-icons/bs';
 
 export default function Contact() {
   return (
