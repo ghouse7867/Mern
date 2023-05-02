@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 export default function Contact() {
   return (
     <div className="container my-5">
-      <h1 className="text-center mb-5">Contact Me</h1>
+      <h1 className="text-center mb-2">Contact Me</h1>
       <div className="row">
         <div className="col-md-6 mx-auto">
           <form>

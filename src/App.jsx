@@ -7,6 +7,7 @@ import About from './components/About.jsx';
 import Login from './components/Login.jsx';
 import Signup from './components/Signup.jsx';
 import Contact from './components/Contact.jsx';
+import Footer from './components/Footer.jsx'
 
 export default function App() {
   return (
@@ -23,6 +24,8 @@ export default function App() {
   <Route path="/login" element={<Login />} />
   <Route path="/signup" element={<Signup />} />
   </Routes>
+  <div style={{ height: "200px" }}></div>
+  <Footer />
 
      
     </>
