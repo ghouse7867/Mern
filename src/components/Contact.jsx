@@ -3,7 +3,29 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Contact() {
   return (
-    <div className="container my-5">
+    <>
+   <div className="d-flex justify-content-center">
+  <div className="card m-5 shadow " style={{width: "18rem"}}>
+  <div className="card-body">
+    <h5 className="card-title">Mobile</h5>
+    <p className="card-text">987654321</p>
+  </div>
+</div>
+       <div className="card m-5  shadow " style={{width: "18rem"}}>
+  <div className="card-body">
+    <h5 className="card-title">Email</h5>
+    <p className="card-text">moid.ghouse@gmail.com</p>
+  </div>
+</div>
+   <div className="card m-5 shadow " style={{width: "18rem"}}>
+  <div className="card-body">
+    <h5 className="card-title">Address</h5>
+    <p className="card-text">India</p>
+  </div>
+</div>
+</div>
+
+    <div className="container my-5 shadow ">
       <h1 className="text-center mb-2">Contact Me</h1>
       <div className="row">
         <div className="col-md-6 mx-auto">
@@ -25,9 +47,12 @@ export default function Contact() {
               <textarea className="form-control" id="message" name="message" rows="5" required></textarea>
             </div>
             <button type="submit" className="btn btn-primary">Send Message</button>
+            <div style={{height:'100px'}}>
+            </div>
           </form>
         </div>
       </div>
     </div>
+       </>
   )
 }

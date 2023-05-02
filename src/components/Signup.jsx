@@ -45,8 +45,10 @@ export default function Signup() {
             <span className="input-group-text"><BsLockFill /></span>
             <input type="password" className="form-control" id="cpassword" value={cpassword} onChange={(e) => setCpassword(e.target.value)} required placeholder="Confirm Password" />
           </div>
-          <button type="submit" className="btn btn-primary pb-2">Sign Up</button>
-          <NavLink to="/login" className="mx-4 fw-bold text-decoration-none">Iam Already Registered</NavLink>
+          <div className="d-flex justify-content-center">
+    <button type="submit" className="btn btn-primary pb-2 me-4">Sign Up</button>
+    <NavLink to="/login" className="mx-4 fw-bold text-decoration-none ms-auto">I am Already Registered</NavLink>
+  </div>
         </form>
         
       </div>

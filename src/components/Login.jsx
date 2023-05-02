@@ -1,6 +1,8 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import login from './Login.jsx'
+import {NavLink} from 'react-router-dom';
+import Signup from './Signup.jsx'
 
 export default function Login() {
   return (
@@ -19,8 +21,12 @@ export default function Login() {
     <input type="checkbox" className="form-check-input" id="exampleCheck1" ></input>
     <label className="form-check-label" for="exampleCheck1">Remember Me</label>
   </div>
-  <button type="submit" className="btn btn-primary">Submit</button>
+        <div className="d-flex justify-content-center">
+  <button type="submit" className="btn btn-primary pb-2 me-4">Submit</button>
+  <NavLink to="/Signup" className="mx-4 fw-bold text-decoration-none ms-auto">Create An Account</NavLink>
+          </div>
 </form>
+     
     </>
   )
 }
