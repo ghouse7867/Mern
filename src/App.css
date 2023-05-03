@@ -1,8 +1,14 @@
-main {
+/* main {
   text-align: center;
   vertical-align: center;
   line-height: 100vh
+} */
+.home-page .home-container {
+  background-color: linear-gradient(to right, #f0f0f0 50%, #ffffff 50%);
 }
-body {
-  background: linear-gradient(to right, #f0f0f0 50%, #ffffff 50%);
+
+@media screen and (max-width: 767px) {
+  .home-page .home-container {
+    background-color: linear-gradient(to right, #f0f0f0 50%, #ffffff 50%);
+  }
 }
