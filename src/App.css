@@ -3,3 +3,6 @@ main {
   vertical-align: center;
   line-height: 100vh
 }
+body {
+  background: linear-gradient(to right, #f0f0f0 50%, #ffffff 50%);
+}
