@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, NavLink } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Signup from './Signup.jsx';
+
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -18,20 +18,28 @@ export default function Login() {
         password
       })
    });
-    
-  
-   const data = res.json();
-
-  if(res.status === 400 || !data) {
-    window.alert("Invalid Credentials")
-  } else if (res.status === 404) {
-    window.alert("Not Registered Please Create An Account")
-  } else if (res.status === 200) {
-    window.alert("Login Successful")
-    navigate('/about');
+   if (!res.ok) {
+    // handle error here
+    window.alert(res.status + ' server not active or please register');
+    return;
   }
+  
+  try {
+      const data = await res.json();
+      if (data.status === 422 || !data) {
+        window.alert('Login failed or already Login');
+        console.log('Login failed');
+      } else {
+        window.alert('Login Successful');
+     
+        navigate('/about');
+      }
+    } catch (error) {
+      console.error('Error parsing JSON:', error);
+    }
+  };
 
- };
+  
 
   return (
     <>

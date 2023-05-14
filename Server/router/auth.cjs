@@ -3,6 +3,7 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 require('../db/conn.cjs');
+const authenticate = require("../middleware/authenticate.cjs");
 
 const User = require('../model/userSchema.cjs')
 
@@ -90,6 +91,45 @@ router.post('/signin', async (req, res) => {
    } catch(err) {
      console.log(err)
    }
-})
+});
+
+router.get('/about',authenticate, (req, res)=>{
+  console.log("hello iam from about")
+  res.send(req.rootUser);
+});
+
+router.get('/getdata',authenticate, (req, res)=>{
+  console.log("hello iam from getdata")
+  res.send(req.rootUser);
+});
+// ===================================================
+
+router.post('/contact',authenticate,async (req, res)=>{
+       try{
+         const {name,email,phone,message} = req.body;
+         if(!name||!email||!phone||!message){
+           console.log("error in contact form")
+           console.log(req.body)
+           return res.status(400).json({
+         message:"please fill the contact form"
+       })
+        } else {
+           console.log("sucess")
+        }
+         
+         const userContact = await User.findOne({_id:req.userID});
+         
+          if(userContact) {
+            const userMessage = await userContact.addMessage(name,email,phone,message)
+            await userContact.save();
+            res.status(201).json({message:"user contact successfully saved"})
+          }else {
+            console.log("failed")
+          }
+         
+       } catch(error){
+         console.log(error)
+       }
+});
 
 module.exports = router;

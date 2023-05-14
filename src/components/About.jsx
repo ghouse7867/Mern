@@ -1,7 +1,42 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function About() {
+  const navigate = useNavigate();
+  
+  const [userData, setUserData] = useState({})
+  
+  const callAboutPage = async () => {
+    try {
+      const res = await fetch('/about', {
+        method: 'GET',
+        headers: {
+          Accept: 'Application/json',
+          'Content-Type': 'Application/json',
+        },
+        credentials: 'include'
+      });
+
+      const data = await res.json();
+      
+      if (res.status === 200) {
+        setUserData(data)
+      } else {
+        const error = new Error(res.statusText);
+        throw error;
+      }
+    } catch(err) {
+      console.log(err);
+      navigate('/login');
+    }
+  }
+  
+  useEffect(() => {
+     callAboutPage();
+  }, []);
+
+
   return (
     <div className="container my-5">
       <div className="row">
@@ -16,18 +51,19 @@ export default function About() {
           <h2 className="mb-4">About Me</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. In auctor tellus sit amet ligula facilisis,
-            vitae pretium lectus molestie. Maecenas euismod turpis at elit sollicitudin, sit amet sodales mauris
             vestibulum. Nunc vel dolor faucibus, suscipit sapien et, cursus leo. Aenean porttitor nunc urna, ac
             bibendum urna blandit eu. Etiam maximus convallis est, eu malesuada turpis consequat id. Nullam
             tincidunt nulla purus, sed euismod augue suscipit sed. Fusce in ante eget quam fringilla faucibus.
             Integer euismod quam ac lectus varius, eget bibendum dolor accumsan.
           </p>
-          <p>
-            Vivamus et semper tortor. In a nisl sit amet justo ultrices dignissim at a risus. Sed ornare
-            consequat fringilla. Integer lacinia elit odio, non ornare tellus finibus at. Etiam eget
-            fermentum risus. Nullam eu sapien a quam ultricies hendrerit vitae ac augue. Vestibulum
-            fermentum dui sit amet varius sagittis.
-          </p>
+          <div>
+            <form method="GET">
+              <p>name : {userData[0]?.name}</p>
+              <p>email : {userData[0]?.email}</p>
+              <p>phone : {userData[0]?.phone}</p>
+              <p>work  : {userData[0]?.work}</p>
+            </form>
+          </div>
         </div>
       </div>
     </div>
