@@ -19,18 +19,17 @@ export default function Home() {
       });
 
       const data = await res.json();
-      console.log(data)
+   
       if (res.status === 200) {
         setname(data.name)
-        console.log(data.name)
+    
       } else {
         const error = new Error(res.statusText);
         throw error;
-        
       }
     } catch(err) {
-      console.log(err);
-        navigate('/login');
+      console.log(err)
+        navigate('/login')
     }
   }
    useEffect(()=>{

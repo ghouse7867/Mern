@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate, NavLink } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import {UserContext} from "../App.jsx"
 
 export default function Login() {
+  const {state, dispatch} = useContext(UserContext)
+  
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -36,9 +38,9 @@ export default function Login() {
          window.alert('In valid Credentials');
         console.log('Login failed');
       } else {
-        window.alert('Login Successful');
-       
+        dispatch({type:"USER", payload:true})
         navigate('/about');
+        window.alert('Login Successful');
       }
     } catch (error) {
       console.error('Error parsing JSON:', error);

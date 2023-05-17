@@ -19,10 +19,10 @@ export default function Contact() {
       });
 
       const data = await res.json();
-      console.log(data)
+
       if (res.status === 200) {
         SetUserData({...userData,name:data.name, email:data.email,phone:data.phone})
-        console.log(data.name)
+  
       } else {
         const error = new Error(res.statusText);
         throw error;
