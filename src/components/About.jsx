@@ -58,10 +58,10 @@ export default function About() {
           </p>
           <div>
             <form method="GET">
-              <p>name : {userData[0]?.name}</p>
-              <p>email : {userData[0]?.email}</p>
-              <p>phone : {userData[0]?.phone}</p>
-              <p>work  : {userData[0]?.work}</p>
+              <p>name : {userData.name}</p>
+              <p>email : {userData.email}</p>
+              <p>phone : {userData.phone}</p>
+              <p>work  : {userData.work}</p>
             </form>
           </div>
         </div>

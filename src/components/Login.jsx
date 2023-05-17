@@ -11,27 +11,33 @@ export default function Login() {
   const handleLogin = async (event) => {
     event.preventDefault();
     const res = await fetch('/signin', {
-      method : "POST",
-      headers : {"Content-Type" : "application/json" },
-        body: JSON.stringify({
-        email, 
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email,
         password
       })
-   });
-   if (!res.ok) {
-    // handle error here
-    window.alert(res.status + ' server not active or please register');
-    return;
-  }
-  
-  try {
+    });
+    if (res.status === 400) {
+      // handle error here
+      window.alert(res.status + ' Invalid Credentials');
+      return;
+    }else if (res.status === 404) {
+      window.alert(res.status + ' server not active or please register ');
+      return;
+    }
+
+    try {
       const data = await res.json();
       if (data.status === 422 || !data) {
         window.alert('Login failed or already Login');
         console.log('Login failed');
+      } else if (data.status === 400 || !data) {
+         window.alert('In valid Credentials');
+        console.log('Login failed');
       } else {
         window.alert('Login Successful');
-     
+       
         navigate('/about');
       }
     } catch (error) {
@@ -39,7 +45,7 @@ export default function Login() {
     }
   };
 
-  
+
 
   return (
     <>
@@ -58,10 +64,10 @@ export default function Login() {
           <label className="form-check-label" htmlFor="exampleCheck1">Remember Me</label>
         </div>
         {/* {error && <div className="alert alert-danger">{error}</div>} */}
-          <div className="d-flex justify-content-center">
-  <button type="submit" onClick={handleLogin}className="btn btn-primary pb-2 me-4">Submit</button>
-  <NavLink to="/Signup" className="mx-4 fw-bold text-decoration-none ms-auto">Create An Account</NavLink>
-          </div>
+        <div className="d-flex justify-content-center">
+          <button type="submit" onClick={handleLogin} className="btn btn-primary pb-2 me-4">Submit</button>
+          <NavLink to="/Signup" className="mx-4 fw-bold text-decoration-none ms-auto">Create An Account</NavLink>
+        </div>
       </form>
     </>
   );

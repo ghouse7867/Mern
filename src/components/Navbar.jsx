@@ -28,6 +28,9 @@ export default function Navbar() {
         <li className="nav-item">
           <NavLink className="nav-link active mx-2" aria-current="page" to="/signup">Registration</NavLink>
      </li>
+         <li className="nav-item">
+          <NavLink className="nav-link active mx-2" aria-current="page" to="/logout">Logout</NavLink>
+     </li>
         
         </ul>
       </div>
