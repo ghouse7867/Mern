@@ -3,6 +3,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const authrouter = require('./router/auth.cjs');
 const app = express();
+const PORT = process.env.PORT || 3001;
 app.use(cookieParser());
 require('./db/conn.cjs');
 
@@ -27,8 +28,8 @@ app.get('/aboutme', middleware, (req, res)=>{
 });
 
 //=========================================
-app.listen(3001, ()=> {
-  console.log(`running on 3000`)
+app.listen(PORT, ()=> {
+  console.log(`running on ${PORT}`)
 })
 
 
