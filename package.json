@@ -5,7 +5,7 @@
   "description": "React TypeScript on Replit, using Vite bundler",
   "scripts": {
     "dev": "nodemon Apps.cjs",
-    "build": "npm run build",
+    "build": "vite build",
     "start": "node Apps.cjs"
   },
   "keywords": [],
