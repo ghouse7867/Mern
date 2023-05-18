@@ -79,13 +79,13 @@ router.post('/signin', async (req, res) => {
        })
        
      if(!isMatch) {
-       res.status(400).json({"Invalid Credentials"})
+       res.status(400).json({error :" Invalid Credentials"})
      } else {
         res.json({message:" user Signed in successfully"})
      }
        
      }else {
-       res.json({"Invalid Credentials"})
+       res.json({ error :" Invalid Credentials"})
      }
      
    } catch(err) {
@@ -137,7 +137,7 @@ router.get('/logout', (req, res)=>{
   res.clearCookie('jwtoken',{
     path:"/"
   })
-  res.status(200).send(req.rootUser);
+  res.status(200).send(req.rootUser)
 });
 
 module.exports = router;
