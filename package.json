@@ -10,7 +10,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "proxy": "https://mernm.onrender.com",
+  "proxy": "https://meek-bonbon-3f6c68.netlify.app",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "bootstrap": "^5.2.3",
