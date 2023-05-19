@@ -8,7 +8,7 @@ export default function About() {
   
   const callAboutPage = async () => {
     try {
-      const res = await fetch('/about', {
+      const res = await fetch('https://mernm.onrender.com/about', {
         method: 'GET',
         headers: {
           Accept: 'Application/json',

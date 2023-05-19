@@ -7,7 +7,7 @@ export default function Logout() {
     const {state, dispatch} = useContext(UserContext)
     const navigate = useNavigate();
   useEffect(()=>{
-    fetch('/logout', {
+    fetch('https://mernm.onrender.com/logout', {
           method: "GET",
           headers: {
           Accept: 'Application/json',
