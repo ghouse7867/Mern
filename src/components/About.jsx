@@ -3,7 +3,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
 
 export default function About() {
-  const cookies = new Cookies();
   const navigate = useNavigate();
   const [userData, setUserData] = useState({})
   

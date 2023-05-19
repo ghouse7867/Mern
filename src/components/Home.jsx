@@ -22,7 +22,7 @@ export default function Home() {
    
       if (res.status === 200) {
         setname(data.name)
-    
+        console.log(data)
       } else {
         const error = new Error(res.statusText);
         throw error;

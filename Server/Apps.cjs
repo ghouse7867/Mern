@@ -10,12 +10,10 @@ require('./db/conn.cjs');
 // Enable CORS
 const cors=require("cors");
 
-app.use(cors());
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://meek-bonbon-3f6c68.netlify.app');,
-  withCredentials: true,
-  next();
-});
+app.use(cors({
+  origin: 'https://meek-bonbon-3f6c68.netlify.app',
+  credentials: true
+}));
 
 app.use(express.json());
 
