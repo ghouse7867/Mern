@@ -11,7 +11,7 @@ export default function Login() {
 
   const handleLogin = async (event) => {
     event.preventDefault();
-    const res = await fetch('/signin', {
+    const res = await fetch('https://mernm.onrender.com/signin', {
       method: "POST",
       headers: { "Content-Type": "application/json"},
       credentials: 'include',
