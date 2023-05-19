@@ -5,7 +5,6 @@ import {UserContext} from "../App.jsx"
 
 export default function Login() {
   const {state, dispatch} = useContext(UserContext)
-  const token = res.cookie("jwtoken");
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -15,7 +14,6 @@ export default function Login() {
     const res = await fetch('/signin', {
       method: "POST",
       headers: { "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`  },
       credentials: 'include',
       body: JSON.stringify({
         email,
