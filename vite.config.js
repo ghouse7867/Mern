@@ -10,7 +10,7 @@ export default defineConfig({
   
   build: {
     outDir: 'dist', // Output directory for the built files
-    assetsDir: 'assets', // Directory for static assets
+    assetsDir: 'src/components', // Directory for static assets
     // You can add more build options as needed
     entry: './src/index.jsx'
   }
