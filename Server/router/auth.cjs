@@ -7,9 +7,9 @@ const authenticate = require("../middleware/authenticate.cjs");
 
 const User = require('../model/userSchema.cjs')
 
-router.get('/', (req, res)=>{
-  res.send('Hello World from Replit router');
-});
+// router.get('/', (req, res)=>{
+//   res.send('Hello World from Replit router');
+// });
 
 router.post('/register', async (req, res)=>{
 
