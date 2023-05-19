@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 
 export default function About() {
   const cookies = new Cookies();
-  const token = cookies.get('jwtoken');
   const navigate = useNavigate();
   const [userData, setUserData] = useState({})
   
@@ -15,7 +14,6 @@ export default function About() {
         headers: {
           Accept: 'Application/json',
           'Content-Type': 'Application/json',
-          'Authorization': `Bearer ${token}`,
         },
         credentials: 'include'
       });
