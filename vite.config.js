@@ -6,12 +6,14 @@ export default defineConfig({
   plugins: [react()],
   server: {
     host: '0.0.0.0',
-  },
-  
-  build: {
+  },build: {
     outDir: 'dist', // Output directory for the built files
-    // Directory for static assets
+    assetsDir: 'assets', // Directory for static assets
     // You can add more build options as needed
-    entry: './src/index.jsx'
+  },
+  rollupOptions: {
+      input: {
+        main: './src/index.jsx' // Specify your main entry file here
+      }
   }
 })
