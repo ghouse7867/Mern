@@ -13,13 +13,14 @@ export default function Login() {
     event.preventDefault();
     const res = await fetch('/signin', {
       method: "POST",
-      headers: { "Content-Type": "application/json",
+      headers: { "Content-Type": "application/json"},
       credentials: 'include',
       body: JSON.stringify({
         email,
         password
       })
     });
+    
     if (res.status === 400) {
       // handle error here
       window.alert(res.status + ' Invalid Credentials');
