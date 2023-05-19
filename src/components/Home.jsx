@@ -9,7 +9,7 @@ export default function Home() {
   
   const userHome = async () =>{
     try {
-      const res = await fetch('https://mernm.onrender.com/getdata', {
+      const res = await fetch('/getdata', {
         method: 'GET',
         headers: {
           Accept: 'Application/json',
