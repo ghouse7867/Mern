@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function About() {
   const navigate = useNavigate();
-  const token = localStorage.getItem('jwtToken')
+  const token = localStorage.getItem('jwtoken')
   const [userData, setUserData] = useState({})
   
   const callAboutPage = async () => {
