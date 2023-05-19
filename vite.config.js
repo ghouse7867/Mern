@@ -12,5 +12,12 @@ export default defineConfig({
     outDir: 'dist', // Output directory for the built files
     assetsDir: 'assets', // Directory for static assets
     // You can add more build options as needed
-  }
+  },
+  optimizeDeps: {
+    include: [
+      'dependency-package-1',
+      'dependency-package-2',
+      // Add other dependencies here
+    ],
+  },
 })
