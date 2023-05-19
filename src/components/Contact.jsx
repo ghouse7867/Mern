@@ -9,7 +9,7 @@ export default function Contact() {
   
   const userContact = async () =>{
     try {
-      const res = await fetch('https://mernm.onrender.com/getdata', {
+      const res = await fetch('/getdata', {
         method: 'GET',
         headers: {
           Accept: 'Application/json',
