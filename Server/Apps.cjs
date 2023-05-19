@@ -28,12 +28,12 @@ middleware = (req, res, next) => {
 }
 //========================================
 
-app.get('/', (req, res)=>{
-  res.send('Hello World from Replit');
-});
-app.get('/aboutme', middleware, (req, res)=>{
-  res.send('Hello World from AboutMe');
-});
+// app.get('/', (req, res)=>{
+//   res.send('Hello World from Replit');
+// });
+// app.get('/aboutme', middleware, (req, res)=>{
+//   res.send('Hello World from AboutMe');
+// });
 
 //=========================================
 app.listen(PORT, ()=> {
