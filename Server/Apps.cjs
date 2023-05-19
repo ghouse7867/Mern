@@ -10,7 +10,7 @@ require('./db/conn.cjs');
 // Enable CORS
 const cors=require("cors");
 const corsOptions ={
-   origin:'https://main--resilient-piroshki-b8cc71.netlify.app', 
+   origin:'https://resilient-piroshki-b8cc71.netlify.app', 
    credentials:true,            //access-control-allow-credentials:true
    optionSuccessStatus:200,
 }
