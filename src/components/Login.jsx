@@ -13,7 +13,8 @@ export default function Login() {
     event.preventDefault();
     const res = await fetch('https://mernm.onrender.com/signin', {
       method: "POST",
-      headers: { "Content-Type": "application/json"},
+      headers: { "Content-Type": "application/json",
+      Authorization: `Bearer ${getCookie('jwtoken')}`},
       credentials: 'include',
       body: JSON.stringify({
         email,
