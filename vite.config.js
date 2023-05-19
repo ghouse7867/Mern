@@ -1,21 +1,12 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-
-// https://vitejs.dev/config/
-export default defineConfig({
+// vite.config.js
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+var vite_config_default = defineConfig({
   plugins: [react()],
   server: {
-    host: '0.0.0.0',
-  },
-  build: {
-    outDir: 'dist',
-    assetsDir: 'assets',
-    optimizeDeps: false, // Disable dependency pre-bundling
-  },
-  rollupOptions: {
-    input: {
-      main: './src/index.jsx'
-    }
-  },
-  entry: './src/index.jsx'
-})
+    host: "0.0.0.0"
+  }
+});
+export {
+  vite_config_default as default
+};
