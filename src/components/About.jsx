@@ -3,8 +3,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
 
 export default function About() {
+  const cookies = new Cookies();
+  const token = cookies.get('jwtoken');
   const navigate = useNavigate();
-  const token = localStorage.getItem('jwtoken')
   const [userData, setUserData] = useState({})
   
   const callAboutPage = async () => {
@@ -14,7 +15,7 @@ export default function About() {
         headers: {
           Accept: 'Application/json',
           'Content-Type': 'Application/json',
-          'Authorization': `Bearer ${token}`
+          'Authorization': `Bearer ${token}`,
         },
         credentials: 'include'
       });
