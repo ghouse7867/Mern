@@ -10,7 +10,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "proxy": "https://mernm.onrender.com",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "bootstrap": "^5.2.3",
