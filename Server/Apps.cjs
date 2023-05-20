@@ -11,7 +11,7 @@ require('./db/conn.cjs');
 const cors=require("cors");
 
 app.use(cors({
-  origin: '*',
+  origin: 'https://meek-bonbon-3f6c68.netlify.app',
   credentials: true
 }));
 
