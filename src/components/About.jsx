@@ -14,7 +14,7 @@ export default function About() {
           Accept: 'Application/json',
           'Content-Type': 'Application/json',
         },
-        credentials: 'include'
+        credentials: 'same-origin'
       });
 
       const data = await res.json();

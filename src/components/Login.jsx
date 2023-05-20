@@ -14,7 +14,7 @@ export default function Login() {
     const res = await fetch('https://mernm.onrender.com/signin', {
       method: "POST",
       headers: { "Content-Type": "application/json"},
-      credentials: 'include',
+      credentials: 'same-origin',
       body: JSON.stringify({
         email,
         password
