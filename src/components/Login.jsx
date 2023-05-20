@@ -38,7 +38,7 @@ export default function Login() {
       } else if (data.status === 400 || !data) {
          window.alert('In valid Credentials');
         console.log('Login failed');
-      } else if (data.status === 200) {
+      } else if ((data.message === " user Signed in successfully") {
         dispatch({type:"USER", payload:true})
         navigate('/about');
         window.alert('Login Successful');
