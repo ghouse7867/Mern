@@ -35,7 +35,7 @@ export default function Login() {
     try {
       const data = await res.json();
        window.alert(JSON.stringify(data))
-      console.log(data)
+      console.log(JSON.stringify(data))
       if (data.status === 422 || !data) {
         window.alert('Login failed or already Login');
         console.log('Login failed');
