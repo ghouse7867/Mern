@@ -71,7 +71,7 @@ router.post('/signin', async (req, res) => {
        //token
       const token = await userLogin.generateAuthToken();
        console.log(token)
-       const isTrustedDomain = req.headers.get('origin') === 'https://meek-bonbon-3f6c68.netlify.app';
+       const isTrustedDomain = req.headers.get('origin') === 'https://mernm.onrender.com';
        if (isTrustedDomain) {
          await res.cookie("jwtoken", token, {
          expires:new Date(Date.now() + 25892000000),
