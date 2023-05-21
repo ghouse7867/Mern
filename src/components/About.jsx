@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 export default function About() {
   const navigate = useNavigate();
   const [userData, setUserData] = useState({})
-  
+  const token = Cookies.get("jwtoken");
   const callAboutPage = async () => {
     try {
       const res = await fetch('https://mernm.onrender.com/about', {
@@ -13,6 +13,8 @@ export default function About() {
         headers: {
           Accept: 'Application/json',
           'Content-Type': 'Application/json',
+          Authorization: `Bearer ${token}`,
+    
         },
         credentials: 'same-origin'
       });
@@ -31,6 +33,7 @@ export default function About() {
       navigate('/login');
     }
   }
+
   
   useEffect(() => {
      callAboutPage();
