@@ -15,8 +15,7 @@ export default function Login() {
     const res = await fetch('https://mernm.onrender.com/signin', {
       method: "POST",
       headers: { "Content-Type": "application/json"},
-      credentials: 'same-origin',
-      Authorization: `Bearer : {token}`,
+      credentials: 'include',
       body: JSON.stringify({
         email,
         password
@@ -35,8 +34,6 @@ export default function Login() {
 
     try {
       const data = await res.json();
-       window.alert(JSON.stringify(data))
-      console.log(JSON.stringify(data))
       if (data.status === 422 || !data) {
         window.alert('Login failed or already Login');
         console.log('Login failed');
@@ -44,7 +41,7 @@ export default function Login() {
          window.alert('In valid Credentials');
         console.log('Login failed');
       } else if (data.message === " user Signed in successfully") {
-        window.alert(token)
+        window.alert(data.token)
         dispatch({type:"USER", payload:true})
         navigate('/about');
         window.alert('Login Successful');
