@@ -6,7 +6,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 app.use(cookieParser());
 require('./db/conn.cjs');
-
+dotenv.config();
 // Enable CORS
 const cors=require("cors");
 
