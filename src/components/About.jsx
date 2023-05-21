@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 export default function About() {
   const navigate = useNavigate();
