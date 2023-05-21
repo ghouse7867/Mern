@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 require('../db/conn.cjs');
 const authenticate = require("../middleware/authenticate.cjs");
-import Cookies from 'js-cookie';
+const Cookies = require('js-cookie');
 
 const User = require('../model/userSchema.cjs')
 
