@@ -43,12 +43,7 @@ export default function Login() {
          window.alert('In valid Credentials');
         console.log('Login failed');
       } else if (data.message === " user Signed in successfully") {
-        window.alert(data.token)
-        Cookies.set("jwtoken", data.token, {
-        expires: 7, // Set cookie expiration (in days)
-        secure: true, // Set the secure flag to true if using HTTPS
-        sameSite: "none" // Set the sameSite flag to "none" for cross-site cookies
-      });
+        window.alert(token)
         dispatch({type:"USER", payload:true})
         navigate('/about');
         window.alert('Login Successful');
