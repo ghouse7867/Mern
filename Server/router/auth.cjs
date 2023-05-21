@@ -69,7 +69,7 @@ router.post('/signin', async (req, res) => {
        const isMatch = await bcrypt.compare(password, userLogin.password);
        
        //token
-      const token = await userLogin.generateAuthToken({secret});
+      const token = await userLogin.generateAuthToken();
        console.log(token)
        const isTrustedDomain = req.headers.get('origin') === 'https://meek-bonbon-3f6c68.netlify.app';
        if (isTrustedDomain) {
