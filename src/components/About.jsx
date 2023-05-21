@@ -12,10 +12,9 @@ export default function About() {
       const res = await fetch('https://mernm.onrender.com/about', {
         method: 'GET',
         headers: {
-          Accept: 'Application/json',
-          'Content-Type': 'Application/json',
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`,
-    
         },
         credentials: 'same-origin'
       });

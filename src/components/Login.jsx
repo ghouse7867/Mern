@@ -40,7 +40,7 @@ export default function Login() {
          window.alert('In valid Credentials');
         console.log('Login failed');
       } else if (data.message === " user Signed in successfully") {
-        console.log(data.token)
+        window.alert(data.token)
         Cookies.set("jwtoken", data.token, {
         expires: 7, // Set cookie expiration (in days)
         secure: true, // Set the secure flag to true if using HTTPS
