@@ -22,7 +22,7 @@ export default function About() {
       const data = await res.json();
       
       if (res.status === 200) {
-        console.log(d)
+        console.log(data)
         setUserData(data)
       } else {
         const error = new Error(res.statusText);
