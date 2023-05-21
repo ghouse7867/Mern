@@ -69,7 +69,6 @@ router.post('/signin', async (req, res) => {
        const isMatch = await bcrypt.compare(password, userLogin.password);
        
        //token
-       const secret = process.env.JWT_SECRET || 'secret';
       const token = await userLogin.generateAuthToken({secret});
        console.log(token)
        
@@ -77,8 +76,6 @@ router.post('/signin', async (req, res) => {
          expires:new Date(Date.now() + 25892000000),
          httpOnly:true,
          secure: true,
-         sameSite: "None",
-        domain: "https://mernm.onrender.com",
        });
        console.log(res.getHeaders())
      if(!isMatch) {

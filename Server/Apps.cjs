@@ -12,6 +12,7 @@ const cors=require("cors");
 
 app.use(cors({
   origin: 'https://meek-bonbon-3f6c68.netlify.app',
+  domain: "https://mernm.onrender.com",
   credentials: true
 }));
 
@@ -22,10 +23,10 @@ app.use(authrouter)
 // const User = require('./model/userSchema.cjs')
 
 //======================================
-middleware = (req, res, next) => {
-   console.log('middleware');
-  next();
-}
+// middleware = (req, res, next) => {
+//    console.log('middleware');
+//   next();
+// }
 //========================================
 
 // app.get('/', (req, res)=>{
