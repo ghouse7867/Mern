@@ -1,12 +1,10 @@
 import { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
-import Cookies from 'js-cookie';
 
 export default function About() {
   const navigate = useNavigate();
   const [userData, setUserData] = useState({})
-  const token = Cookies.get("jwtoken");
   const callAboutPage = async () => {
     try {
       const res = await fetch('https://mernm.onrender.com/about', {
@@ -14,12 +12,12 @@ export default function About() {
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
         },
-        credentials: 'same-origin'
+        credentials: 'include'
       });
 
       const data = await res.json();
+      
       
       if (res.status === 200) {
         window.alert(data)

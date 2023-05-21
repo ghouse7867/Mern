@@ -4,7 +4,6 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 require('../db/conn.cjs');
 const authenticate = require("../middleware/authenticate.cjs");
-const Cookies = require('js-cookie');
 
 const User = require('../model/userSchema.cjs')
 
@@ -70,15 +69,17 @@ router.post('/signin', async (req, res) => {
        const isMatch = await bcrypt.compare(password, userLogin.password);
        
        //token
-       
-      const token = await userLogin.generateAuthToken();
+       const secret = process.env.JWT_SECRET || 'secret';
+      const token = await userLogin.generateAuthToken({secret});
        console.log(token)
        
-  Cookies.set("jwtoken",token, {
-  expires: 7,
-  secure: true,
-  sameSite: "none"
-  });
+         await res.cookie("jwtoken", token, {
+         expires:new Date(Date.now() + 25892000000),
+         httpOnly:true,
+         secure: true,
+         sameSite: "None",
+        domain: "https://mernm.onrender.com",
+       });
        console.log(res.getHeaders())
      if(!isMatch) {
        res.status(400).json({error :" Invalid Credentials"})
@@ -96,6 +97,7 @@ router.post('/signin', async (req, res) => {
 });
 
 router.get('/about',authenticate, (req, res)=>{
+  const jwtoken = req.cookies.jwtoken;
   console.log("hello iam from about")
   res.send(req.rootUser);
 });

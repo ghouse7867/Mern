@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { useNavigate, NavLink } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {UserContext} from "../App.jsx"
-import Cookies from 'js-cookie';
+
 
 export default function Login() {
   const {state, dispatch} = useContext(UserContext)
@@ -16,6 +16,7 @@ export default function Login() {
       method: "POST",
       headers: { "Content-Type": "application/json"},
       credentials: 'same-origin',
+      Authorization: `Bearer : {token}`,
       body: JSON.stringify({
         email,
         password
