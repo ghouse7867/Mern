@@ -97,7 +97,6 @@ router.post('/signin', async (req, res) => {
 });
 
 router.get('/about',authenticate, (req, res)=>{
-  const jwtoken = req.cookies.jwtoken;
   console.log("hello iam from about")
   res.send(req.rootUser);
 });
