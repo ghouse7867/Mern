@@ -70,13 +70,11 @@ router.post('/signin', async (req, res) => {
        
        //token
       const token = await userLogin.generateAuthToken();
-       console.log(token)
-          res.cookie("jwtoken", token, {
+        res.cookie("jwtoken", token, {
          expires:new Date(Date.now() + 268000000),
          httpOnly:true,
          secure: true,
         sameSite: 'none',
-        domain: 'meek-bonbon-3f6c68.netlify.app',
        });
    
        console.log(res.getHeaders())
