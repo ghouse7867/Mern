@@ -4,7 +4,10 @@ const cookieParser = require('cookie-parser');
 const authrouter = require('./router/auth.cjs');
 const app = express();
 const PORT = process.env.PORT || 3001;
-app.use(cookieParser());
+app.use(cookieParser({
+  sameSite: 'none',
+  secure: true
+}));
 require('./db/conn.cjs');
 dotenv.config();
 // Enable CORS

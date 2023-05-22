@@ -74,7 +74,9 @@ router.post('/signin', async (req, res) => {
           res.cookie("jwtoken", token, {
          expires:new Date(Date.now() + 268000000),
          httpOnly:true,
-         secure: false,
+         secure: true,
+        sameSite: 'none',
+        domain: 'meek-bonbon-3f6c68.netlify.app',
        });
    
        console.log(res.getHeaders())
