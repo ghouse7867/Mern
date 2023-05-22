@@ -21,7 +21,6 @@ export default function Login() {
         password
       })
     });
-    window.alert(res);
     
     if (res.status === 400) {
       // handle error here
@@ -41,7 +40,6 @@ export default function Login() {
          window.alert('In valid Credentials');
         console.log('Login failed');
       } else if (data.message === " user Signed in successfully") {
-        window.alert(data.token)
         dispatch({type:"USER", payload:true})
         navigate('/about');
         window.alert('Login Successful');
