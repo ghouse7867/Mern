@@ -134,8 +134,7 @@ router.post('/contact',authenticate,async (req, res)=>{
 //Logout page
 router.get('/logout', (req, res)=>{
   console.log("hello iam from logout")
- res.clearCookie('jwtoken', { domain: 'meek-bonbon-3f6c68.netlify.app' });
-  })
+  res.clearCookie('jwtoken',{ domain: 'meek-bonbon-3f6c68.netlify.app' })
   res.status(200).send(req.rootUser)
 });
 
