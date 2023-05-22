@@ -71,7 +71,7 @@ router.post('/signin', async (req, res) => {
        //token
       const token = await userLogin.generateAuthToken();
         res.cookie("jwtoken", token, {
-         expires:new Date(Date.now() + 268000000),
+         expires:new Date(Date.now() + 120000),
          httpOnly:true,
          secure: true,
         sameSite: 'none',
@@ -134,8 +134,9 @@ router.post('/contact',authenticate,async (req, res)=>{
 //Logout page
 router.get('/logout', (req, res)=>{
   console.log("hello iam from logout")
+  res.status(200).send(req.rootUser)
   res.clearCookie('jwtoken',{ domain: 'meek-bonbon-3f6c68.netlify.app' })
-  // res.status(200).send(req.rootUser)
+
 });
 
 module.exports = router;
