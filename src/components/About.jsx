@@ -20,7 +20,6 @@ export default function About() {
       
       
       if (res.status === 200) {
-        window.alert(data)
         setUserData(data)
       } else {
         const error = new Error(res.statusText);
