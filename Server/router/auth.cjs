@@ -69,8 +69,7 @@ router.post('/signin', async (req, res) => {
        const isMatch = await bcrypt.compare(password, userLogin.password);
        
        //token
-      // const token = await userLogin.generateAuthToken();
-         const token = req.cookies.jwtoken;
+      const token = await userLogin.generateAuthToken();
         res.cookie("jwtoken", token, {
          expires:new Date(Date.now() + 268000000),
          httpOnly:true,
@@ -135,8 +134,7 @@ router.post('/contact',authenticate,async (req, res)=>{
 //Logout page
 router.get('/logout', (req, res)=>{
   console.log("hello iam from logout")
-  res.clearCookie('jwtoken',{
-    path:"/"
+ res.clearCookie('jwtoken', { domain: 'meek-bonbon-3f6c68.netlify.app' });
   })
   res.status(200).send(req.rootUser)
 });
