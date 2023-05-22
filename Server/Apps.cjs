@@ -12,9 +12,9 @@ const cors=require("cors");
 
 app.use(cors({
   origin: 'https://meek-bonbon-3f6c68.netlify.app',
-  domain: "https://mernm.onrender.com",
   credentials: true
 }));
+
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "https://meek-bonbon-3f6c68.netlify.app");
   res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content, Accept, Content-Type, Authorization");
