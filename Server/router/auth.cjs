@@ -135,11 +135,11 @@ router.post('/contact',authenticate,async (req, res)=>{
 router.get('/logout', (req, res)=>{
   console.log("hello iam from logout")
   
-   res.clearCookie('jwtoken',{
+   res.clearCookie(req.cookies.jwtoken,{
     path:"/login"
   })
   res.status(200).send(req.rootUser)
-
+   console.log("jwtoken deleted")
 });
 
 module.exports = router;
