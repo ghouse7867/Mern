@@ -136,7 +136,7 @@ router.post('/contact',authenticate,async (req, res)=>{
 //Logout page
 router.get('/logout', async (req, res) => {
   console.log("hello iam from logout");
-  console.log(req.token);
+  console.log(req.cookies.jwtoken);
   // Clear the cookie from the browser
   const token = req.cookies.jwtoken;
   await res.clearCookie(token, {
