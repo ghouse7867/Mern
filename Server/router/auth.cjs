@@ -80,14 +80,14 @@ router.post('/signin', async (req, res) => {
        console.log(res.getHeaders())
      if(!isMatch) {
        res.status(400).json({error :" Invalid Credentials try again"})
-       window.alert(error)
+      
      } else {
         res.json({message:" user Signed in successfully"})
      }
        
      }else {
        res.json({ error :" Invalid Credentials"})
-       window.alert(error)
+     
      }
      
    } catch(err) {
