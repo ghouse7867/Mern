@@ -145,7 +145,7 @@ router.get('/logout', (req, res) => {
   });
 
   // Remove tokens from the user document
-  req.cookies.jwtoken = "";
+  req.cookies.jwtoken = [];
 
   // Save the updated user document
   req.rootUser.save();
