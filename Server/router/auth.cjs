@@ -136,7 +136,7 @@ router.post('/contact',authenticate,async (req, res)=>{
 //Logout page
 router.post('/logout', (req, res) => {
   console.log("hello iam from logout");
-
+  console.log(req.body);
   // Clear the cookie from the browser
   res.clearCookie('jwtoken', {
     domain: 'mernm.onrender.com', // Replace with your actual domain
