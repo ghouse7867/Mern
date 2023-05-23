@@ -149,6 +149,10 @@ router.get('/logout', async (req, res) => {
   res.status(200).send(req.rootUser);
 
   console.log("jwtoken deleted");
+  
+  options('*', (req, res) => {
+  res.sendStatus(200);
+});
 });
 
 
