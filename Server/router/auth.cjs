@@ -136,13 +136,13 @@ router.get('/logout', (req, res) => {
   console.log("hello iam from logout");
 
   // Clear the cookie from the browser
-  res.clearCookie(req.cookies.jwtoken, {
-    path: "/login"
+  res.clearCookie('jwtoken', {
+    path: '/login'
   });
-
-  // Invalidate the token on the server side
-  const now = new Date();
-  const expiredToken = jwt.sign({}, {}, { expiresIn: now });
+  
+console.log('jwtoken:', req.cookies.jwtoken);
+   // Invalidate the token on the server side
+  const expiredToken = jwt.sign({}, process.env.SECRET_KEY, { expiresIn: 0 });
   res.status(200).send(expiredToken);
 
   console.log("jwtoken deleted");
