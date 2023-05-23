@@ -144,11 +144,6 @@ router.get('/logout', (req, res) => {
     sameSite: 'none' // Ensure the sameSite attribute matches the original cookie
   });
 
-  // Remove tokens from the user document
-  req.cookies.jwtoken = [];
-
-  // Save the updated user document
-  req.rootUser.save();
 
   // Send a response or redirect to the desired page
   res.status(200).send(req.rootUser);
