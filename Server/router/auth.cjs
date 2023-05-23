@@ -141,7 +141,6 @@ router.get('/logout', async (req, res) => {
   const token = req.cookies.jwtoken;
   await res.clearCookie(token, {
     path: '/', // Replace with the path where the cookie was set
-    httpOnly: true, // Ensure the httpOnly flag matches the original cookie
     secure: true, // Ensure the secure flag matches the original cookie
     sameSite: 'none', // Ensure the sameSite attribute matches the original cookie
     expires: new Date()
