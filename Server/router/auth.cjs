@@ -137,7 +137,7 @@ router.get('/logout', (req, res) => {
 
   // Clear the cookie from the browser
   res.clearCookie('jwtoken', {
-    domain: 'meek-bonbon-3f6c68.netlify.app', // Replace with your actual domain
+    domain: 'mernm.onrender.com', // Replace with your actual domain
     path: '/', // Replace with the path where the cookie was set
     httpOnly: true, // Ensure the httpOnly flag matches the original cookie
     secure: true, // Ensure the secure flag matches the original cookie
