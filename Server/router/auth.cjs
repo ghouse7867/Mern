@@ -134,11 +134,11 @@ router.post('/contact',authenticate,async (req, res)=>{
        }
 });
 //Logout page
-router.get('/logout', (req, res) => {
+router.get('/logout', async (req, res) => {
   console.log("hello iam from logout");
   console.log(req.body);
   // Clear the cookie from the browser
-  res.clearCookie('jwtoken', {
+  await res.clearCookie('jwtoken', {
     path: '/login', // Replace with the path where the cookie was set
     httpOnly: true, // Ensure the httpOnly flag matches the original cookie
     secure: true, // Ensure the secure flag matches the original cookie
