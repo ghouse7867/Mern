@@ -92,12 +92,12 @@ router.post('/signin', async (req, res) => {
      console.log(err)
    }
 });
-
+//==================================================
 router.get('/about',authenticate, (req, res)=>{
   console.log("hello iam from about")
   res.send(req.rootUser);
 });
-
+//====================================================
 router.get('/getdata',authenticate, (req, res)=>{
   console.log("hello iam from getdata")
   res.send(req.rootUser);
@@ -137,7 +137,7 @@ router.get('/logout', (req, res) => {
 
   // Clear the cookie from the browser
   res.clearCookie('jwtoken', {
-    path: '/login'
+    path: '/'
   });
   
 console.log('jwtoken:', req.cookies.jwtoken);
