@@ -134,12 +134,11 @@ router.post('/contact',authenticate,async (req, res)=>{
        }
 });
 //Logout page
-router.post('/logout', (req, res) => {
+router.get('/logout', (req, res) => {
   console.log("hello iam from logout");
   console.log(req.body);
   // Clear the cookie from the browser
   res.clearCookie('jwtoken', {
-    domain: 'mernm.onrender.com', // Replace with your actual domain
     path: '/login', // Replace with the path where the cookie was set
     httpOnly: true, // Ensure the httpOnly flag matches the original cookie
     secure: true, // Ensure the secure flag matches the original cookie

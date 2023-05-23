@@ -8,7 +8,7 @@ export default function Logout() {
     const navigate = useNavigate();
   useEffect(()=>{
     fetch('https://mernm.onrender.com/logout', {
-          method: "POST",
+          method: "GET",
           headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
