@@ -10,8 +10,8 @@ export default function Logout() {
     fetch('https://mernm.onrender.com/logout', {
           method: "GET",
           headers: {
-          Accept: 'Application/json',
-          'Content-Type': 'Application/json',
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
         },
         credentials: "include"
     }).then((res)=>{
