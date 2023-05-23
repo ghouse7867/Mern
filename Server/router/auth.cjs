@@ -132,14 +132,20 @@ router.post('/contact',authenticate,async (req, res)=>{
        }
 });
 //Logout page
-router.get('/logout', (req, res)=>{
-  console.log("hello iam from logout")
-  
-   res.clearCookie(req.cookies.jwtoken,{
-    path:"/login"
-  })
-  res.status(200).send(req.rootUser)
-   console.log("jwtoken deleted")
+router.get('/logout', (req, res) => {
+  console.log("hello iam from logout");
+
+  // Clear the cookie from the browser
+  res.clearCookie(req.cookies.jwtoken, {
+    path: "/login"
+  });
+
+  // Invalidate the token on the server side
+  const now = new Date();
+  const expiredToken = jwt.sign({}, {}, { expiresIn: now });
+  res.status(200).send(expiredToken);
+
+  console.log("jwtoken deleted");
 });
 
 module.exports = router;
