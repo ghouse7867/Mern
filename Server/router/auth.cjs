@@ -139,6 +139,7 @@ router.get('/logout', async (req, res) => {
   console.log(req.cookies.jwtoken);
   // Clear the cookie from the browser
   const token = req.cookies.jwtoken;
+  console.log(token)
   await res.clearCookie(token, {
     path: '/', // Replace with the path where the cookie was set
     secure: true, // Ensure the secure flag matches the original cookie
