@@ -140,10 +140,12 @@ router.get('/logout', authenticate, async (req, res) => {
   // Clear the cookie from the browser
   const token = req.cookies.jwtoken;
   console.log(token)
-  await res.clearCookie(token, {
-    path: '*', // Replace with the path where the cookie was set
+  await res.clearCookie('jwtoken', {
+    path: '/signin', // Replace with the path where the cookie was set
     session: false,
     domain : "mernm.onrender.com",
+    httpOnly: true,
+    secure: true,
   });
 
 
@@ -152,8 +154,6 @@ router.get('/logout', authenticate, async (req, res) => {
 
   console.log("jwtoken deleted");
   
-  options('*', (req, res) => {
-  res.sendStatus(200);
 });
 });
 
