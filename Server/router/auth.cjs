@@ -142,6 +142,7 @@ router.get('/logout', async (req, res) => {
   console.log(token)
   await res.clearCookie(token, {
     path: '/', // Replace with the path where the cookie was set
+    session: false,
   });
 
 
