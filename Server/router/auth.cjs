@@ -134,27 +134,30 @@ router.post('/contact',authenticate,async (req, res)=>{
        }
 });
 //Logout page
-router.get('/logout', authenticate, async (req, res) => {
-  console.log("hello iam from logout");
+router.get('/logout', async (req, res) => {
+  try {
+    console.log("hello iam from logout");
 
-  // Clear the cookie from the browser
-  const token = req.cookies.jwtoken;
-  console.log(token)
-  await res.clearCookie('jwtoken', {
-    path: '/signin', // Replace with the path where the cookie was set
-    session: false,
-    domain : "mernm.onrender.com",
-    httpOnly: true,
-    secure: true,
-  });
+    // Clear the cookie from the browser
+    const token = req.cookies.jwtoken;
+    console.log(token);
 
+    res.clearCookie('jwtoken', {
+      path: '/signin', // Replace with the path where the cookie was set
+      session: false,
+      domain: "mernm.onrender.com",
+      httpOnly: true,
+      secure: true,
+    });
 
-  // Send a response or redirect to the desired page
-  res.status(200).send(req.rootUser);
+    // Send a response or redirect to the desired page
+    res.status(200).send(req.rootUser);
 
-  console.log("jwtoken deleted");
-  
-
+    console.log("jwtoken deleted");
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Internal Server Error");
+  }
 });
 
 
