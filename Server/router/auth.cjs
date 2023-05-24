@@ -141,7 +141,7 @@ router.get('/logout', async (req, res) => {
   const token = req.cookies.jwtoken;
   console.log(token)
   await res.clearCookie(token, {
-    path: '/', // Replace with the path where the cookie was set
+    path: '*', // Replace with the path where the cookie was set
     session: false,
   });
 
