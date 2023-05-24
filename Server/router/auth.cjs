@@ -143,6 +143,7 @@ router.get('/logout', authenticate, async (req, res) => {
   await res.clearCookie(token, {
     path: '*', // Replace with the path where the cookie was set
     session: false,
+    domain : "mernm.onrender.com",
   });
 
 
