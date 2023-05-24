@@ -143,7 +143,7 @@ router.get('/logout', async (req, res) => {
     console.log(token);
 
     res.clearCookie('jwtoken', {
-      path: '/signin', // Replace with the path where the cookie was set
+      path: '/', // Replace with the path where the cookie was set
       session: false,
       domain: "mernm.onrender.com",
       httpOnly: true,
