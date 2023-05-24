@@ -13,7 +13,8 @@ export default function Logout() {
           Accept: 'application/json',
           'Content-Type': 'application/json',
         },
-        credentials: "include"
+        credentials: "include",
+        withCredentials: true,
     }).then((res)=>{
       dispatch({type:"USER", payload:false})
        navigate('/login',{ replace:true});

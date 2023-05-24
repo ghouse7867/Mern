@@ -142,13 +142,12 @@ router.get('/logout', async (req, res) => {
     const token = req.cookies.jwtoken;
     console.log(token);
 
-    res.clearCookie('jwtoken', {
-      path: '/', // Replace with the path where the cookie was set
-      session: false,
-      domain: "mernm.onrender.com",
-      httpOnly: true,
-      secure: true,
-    });
+    res.cookie("jwtoken", token, {
+         expires:new Date(Date.now() + 1),
+         httpOnly:true,
+         secure: true,
+        sameSite: 'none',
+       });
 
     // Send a response or redirect to the desired page
     res.status(200).send(req.rootUser);
