@@ -37,11 +37,7 @@ export default function Home() {
     }
   }
    useEffect(()=>{
-     
-     setTimeout(() => {
      userHome();
-    }, 2000);
-     
   },[]);
   
   return (
