@@ -2,8 +2,11 @@
 import { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
+import {UserContext} from "../App.jsx"
+
 
 export default function Home() {
+  const {state, dispatch} = useContext(UserContext)
   const [name, setname] = useState('')
   const navigate = useNavigate();
   
@@ -22,6 +25,7 @@ export default function Home() {
    
       if (res.status === 200) {
         setname(data.name)
+        dispatch({type:"USER", payload:true})
         
       } else {
         const error = new Error(res.statusText);
