@@ -1,5 +1,5 @@
 // import '../App.css'
-import { useEffect, useState,useContext } from 'react';
+import { useEffect, useState,useContext, } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
 import {UserContext} from "../App.jsx"
@@ -39,8 +39,9 @@ export default function Home() {
    useEffect(()=>{
      userHome();
   },[]);
-  
-  return (
+
+  if (state){
+    return (
     <>
       <div className="container-fluid">
         <div className="row align-items-center justify-content-center min-vh-100">
@@ -54,5 +55,9 @@ export default function Home() {
       </div>
     </>
   )
+  }else{
+    <h1>Loading...</h1>
+  }
+  
 }
 

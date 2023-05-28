@@ -1,9 +1,10 @@
-import React,{useState, useEffect} from 'react';
+import React,{useState, useEffect,useContext} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BsPhoneFill, BsBuilding, BsEnvelopeFill } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
 
 export default function Contact() {
+    const {state, dispatch} = useContext(UserContext)
    const navigate = useNavigate();
   const [userData, SetUserData] = useState({name: "",email: "",phone: "",message: ""});
   
@@ -72,7 +73,8 @@ export default function Contact() {
 
      
    }
-  return (
+  if (state) {
+    return (
     <>
    <div className="d-flex justify-content-center flex-wrap">
   <div className="card m-5 shadow " style={{width: "18rem"}}>
@@ -125,4 +127,8 @@ export default function Contact() {
     </div>
        </>
   )
+  }else{
+    <h1>Loading...</h1>
+  }
+  
 }
