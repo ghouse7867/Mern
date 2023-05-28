@@ -1,5 +1,5 @@
 // import '../App.css'
-import { useEffect, useState,useContext, } from 'react';
+import { useEffect, useState,useContext } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
 import {UserContext} from "../App.jsx"
@@ -56,7 +56,9 @@ export default function Home() {
     </>
   )
   }else{
+    return (
     <h1>Loading...</h1>
+      )
   }
   
 }

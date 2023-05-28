@@ -2,6 +2,7 @@ import React,{useState, useEffect,useContext} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BsPhoneFill, BsBuilding, BsEnvelopeFill } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
+import {UserContext} from "../App.jsx"
 
 export default function Contact() {
     const {state, dispatch} = useContext(UserContext)
@@ -128,7 +129,10 @@ export default function Contact() {
        </>
   )
   }else{
-    <h1>Loading...</h1>
+    return (
+      <h1>Loading...</h1>
+    )
+    
   }
   
 }
