@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
+import {UserContext} from "../App.jsx"
 
 export default function About() {
+  const {state, dispatch} = useContext(UserContext)
   const navigate = useNavigate();
   const [userData, setUserData] = useState({})
   const callAboutPage = async () => {
@@ -36,8 +38,8 @@ export default function About() {
      callAboutPage();
   }, []);
 
-
-  return (
+  if (state){
+    return (
     <div className="container my-5">
       <div className="row">
         <div className="col-md-6">
@@ -68,4 +70,6 @@ export default function About() {
       </div>
     </div>
   );
+  }
+  
 }
