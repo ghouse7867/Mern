@@ -28,9 +28,10 @@ export default function Logout() {
     })
   })
   return(
-      <>
-        <h1>Logout</h1>
-        
+     <>
+       <div class="spinner-grow text-primary" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
       </>
     
   )
