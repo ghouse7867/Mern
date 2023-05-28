@@ -70,6 +70,10 @@ export default function About() {
       </div>
     </div>
   );
+  }else {
+    return (
+    <h1>Loading...</h1>
+      );
   }
   
 }
