@@ -52,6 +52,7 @@ export default function Contact() {
        const res = await fetch('/contact', {
         method: "POST",
         headers : {"Content-Type" : "application/json" },
+        credentials: 'include',
         body: JSON.stringify({
         name,
         email, 
@@ -70,8 +71,6 @@ export default function Contact() {
      }catch(err){
        console.log(err)
      }
-      
-
      
    }
   if (state) {
