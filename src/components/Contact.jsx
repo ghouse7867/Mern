@@ -49,7 +49,7 @@ export default function Contact() {
      e.preventDefault();
      const {name, email, phone, message} = userData;
      try {
-       const res = await fetch('/contact', {
+       const res = await fetch('https://mernm.onrender.com/contact', {
         method: "POST",
         headers : {"Content-Type" : "application/json" },
         credentials: 'include',
