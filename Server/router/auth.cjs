@@ -62,7 +62,7 @@ router.post('/signin', async (req, res) => {
        })
      }
      const userLogin = await User.findOne({
-       email:email, password:password
+       email:email
      });
       console.log(userLogin)
      if(userLogin) {
