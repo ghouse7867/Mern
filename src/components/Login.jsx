@@ -37,10 +37,10 @@ export default function Login() {
         window.alert('Login failed or already Login');
         console.log('Login failed');
       } else if (data.status === 400 || !data) {
-         window.alert('In valid Credentials');
+         window.alert('Invalid Credentials');
         console.log('Login failed');
-      } else if (data.error === "Invalid Credentials") {
-        window.alert('Invalid Credentials');
+      } else if (data.error === " Invalid Credentials") {
+        window.alert('Invalid Credentials...');
       } else if (data.message === " user Signed in successfully") {
         dispatch({type:"USER", payload:true})
         navigate('/about');
