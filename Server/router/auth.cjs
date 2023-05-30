@@ -64,7 +64,7 @@ router.post('/signin', async (req, res) => {
      const userLogin = await User.findOne({
        email:email, password:password
      });
-
+      console.log(userLogin)
      if(userLogin) {
        const isMatch = await bcrypt.compare(password, userLogin.password);
        
@@ -77,7 +77,6 @@ router.post('/signin', async (req, res) => {
         sameSite: 'none',
        });
    
-       console.log(res.getHeaders())
      if(!isMatch) {
        res.status(400).json({error :" Invalid Credentials try again"})
       
