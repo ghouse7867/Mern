@@ -72,9 +72,11 @@ router.post('/signin', async (req, res) => {
      
      if(userPass) {
        const isMatch = await bcrypt.compare(password, userLogin.password);
+     } else {
+       res.json({ error :" wrong credssss"})
+     }
        if(userLogin) {
-       const isMatch = await bcrypt.compare(email, userLogin.email);
-
+       const isMatchs = await bcrypt.compare(email, userLogin.email);
        
        //token
       const token = await userLogin.generateAuthToken();
@@ -85,16 +87,15 @@ router.post('/signin', async (req, res) => {
         sameSite: 'none',
        });
    
-     if(!isMatch || !isCPasswordMatch) {
+     if(!isMatch || !isMatchs) {
        res.status(400).json({error :" Invalid Credentials try again"})
       
      } else {
         res.json({message:" user Signed in successfully"})
      }
        
-     }else {
+     } else {
        res.json({ error :" Invalid Credentials"})
-     
      }
      
    } catch(err) {
