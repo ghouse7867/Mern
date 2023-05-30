@@ -24,7 +24,7 @@ export default function Login() {
     
     if (res.status === 400) {
       // handle error here
-      window.alert(res.status + ' Invalid Credentials');
+      window.alert(res.status + ' Invalid Credentials!');
       return;
     }else if (res.status === 404) {
       window.alert(res.status + ' server not active or please register ');
