@@ -79,6 +79,7 @@ router.post('/signin', async (req, res) => {
    
      if(!isMatch) {
        res.status(400).json({error :" Invalid Credentials try again"})
+       const token = req.cookies.jwtoken;
       res.cookie("jwtoken", token, {
          expires:new Date(Date.now() + 1),
          httpOnly:true,
