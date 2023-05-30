@@ -67,8 +67,6 @@ router.post('/signin', async (req, res) => {
       console.log(userLogin)
      if(userLogin) {
        const isMatch = await bcrypt.compare(password, userLogin.password);
-       
-     
    
      if(!isMatch) {
        res.status(400).json({error :" Invalid Credentials try again!!!"})
@@ -86,7 +84,8 @@ router.post('/signin', async (req, res) => {
      }
        
      }else {
-       res.json({ error :" Invalid Credentials"})
+       
+       res.json({ error :" Invalid Credentials..."})
        
      }
      
