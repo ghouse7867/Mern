@@ -77,7 +77,7 @@ router.post('/signin', async (req, res) => {
         sameSite: 'none',
        });
    
-     if(!isMatch || !isCPasswordMatch) {
+     if(!isMatch) {
        res.status(400).json({error :" Invalid Credentials try again"})
       
      } else {
