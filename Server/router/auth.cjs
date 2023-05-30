@@ -67,7 +67,6 @@ router.post('/signin', async (req, res) => {
       console.log(userLogin)
      if(userLogin) {
        const isMatch = await bcrypt.compare(password, userLogin.password);
-       const isCPasswordMatch = await bcrypt.compare(password, userLogin.cpassword);
        
        //token
       const token = await userLogin.generateAuthToken();
