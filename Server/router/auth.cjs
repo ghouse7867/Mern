@@ -68,7 +68,13 @@ router.post('/signin', async (req, res) => {
      if(userLogin) {
        const isMatch = await bcrypt.compare(password, userLogin.password);
        
-       //token
+     
+   
+     if(!isMatch) {
+       res.status(400).json({error :" Invalid Credentials try again!!!"})
+       
+     } else {
+         //token
       const token = await userLogin.generateAuthToken();
         res.cookie("jwtoken", token, {
          expires:new Date(Date.now() + 3600000),
@@ -76,18 +82,6 @@ router.post('/signin', async (req, res) => {
          secure: true,
         sameSite: 'none',
        });
-   
-     if(!isMatch) {
-       res.status(400).json({error :" Invalid Credentials try again!!!"})
-       const token = req.cookies.jwtoken;
-      res.cookie("jwtoken", token, {
-         expires:new Date(Date.now() + 1),
-         httpOnly:true,
-         secure: true,
-        sameSite: 'none',
-       });
-       
-     } else {
         res.json({message:" user Signed in successfully"})
      }
        
