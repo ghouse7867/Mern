@@ -29,9 +29,6 @@ export default function Login() {
     }else if (res.status === 404) {
       window.alert(res.status + ' server not active or please register ');
       return;
-    }else if(res.status === 200 && res.error == "Invalid Credentials"){
-      window.alert(res.status + "invalid creds" );
-      return;
     }
 
     try {
@@ -42,6 +39,8 @@ export default function Login() {
       } else if (data.status === 400 || !data) {
          window.alert('In valid Credentials');
         console.log('Login failed');
+      } else if (data.error === "Invalid Credentials") {
+        window.alert('Invalid Credentials');
       } else if (data.message === " user Signed in successfully") {
         dispatch({type:"USER", payload:true})
         navigate('/about');
