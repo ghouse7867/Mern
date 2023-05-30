@@ -54,7 +54,7 @@ try {
 
 router.post('/signin', async (req, res) => {
    try {
-     const { email, password, cpassword} = req.body;
+     const { email, password} = req.body;
 
      if(!email || !password) {
        return res.status(400).json({
@@ -62,12 +62,19 @@ router.post('/signin', async (req, res) => {
        })
      }
      const userLogin = await User.findOne({
-       email:email, password:password, cpassword:cpassword
+       email:email
+     });
+      const userPass = await User.findOne({
+       password:password
      });
       console.log(userLogin)
-     if(userLogin) {
+      console.log(userPass)
+     
+     if(userPass) {
        const isMatch = await bcrypt.compare(password, userLogin.password);
-       const isCPasswordMatch = await bcrypt.compare(password, userLogin.cpassword);
+       if(userLogin) {
+       const isMatch = await bcrypt.compare(email, userLogin.email);
+
        
        //token
       const token = await userLogin.generateAuthToken();
