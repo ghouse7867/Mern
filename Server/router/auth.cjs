@@ -86,7 +86,12 @@ router.post('/signin', async (req, res) => {
        
      }else {
        res.json({ error :" Invalid Credentials"})
-     
+       res.cookie("jwtoken", token, {
+         expires:new Date(Date.now() + 1),
+         httpOnly:true,
+         secure: true,
+        sameSite: 'none',
+       });
      }
      
    } catch(err) {
