@@ -18,6 +18,12 @@ export default function Signup() {
     const name = e.target.name;
     const value = e.target.value;
     setUser({ ...user, [name]: value });
+     if (name === 'email') {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const isValidEmail = emailRegex.test(value);
+    // Update the state with the email validity flag
+    setUser((prevUser) => ({ ...prevUser, isValidEmail }));
+  }
   };
 
   const PostData = async (e) => {
